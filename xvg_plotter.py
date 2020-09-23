@@ -5,6 +5,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
 
 # read xvg file
 
@@ -26,8 +27,21 @@ def read_xvg(xvg_file):
 
     return x, y
 
-
-
 # set plot parameters
+def set_plot_parameters(plot_obj, title, xlabel, ylabel):
+    plot_obj.title(title)
+    plot_obj.xlabel(xlabel)
+    plot_obj.ylabel(ylabel)
 
 # main function
+if __name__ == "__main__":
+    # setting up plotting parameters
+    xvg_input = sys.argv[1]
+    title = sys.argv[2]
+    xlabel = sys.argv[3]
+    ylabel = sys.argv[4]
+
+    x, y = read_xvg(xvg_input)
+    plt.plot(x, y)
+    set_plot_parameters(plt, title, xlabel, ylabel)
+    plt.show()
