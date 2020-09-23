@@ -24,7 +24,12 @@ def read_xvg(xvg_file):
         if first_charactor[0] != '#' and first_charactor[0] != '@':
             x.append(float(line_entry[0]))
             y.append(float(line_entry[1]))
-
+    x = np.array(x)
+    # convert time from ps to ns
+    x /= 1000
+    # convert rmsd from nm to A
+    y = np.array(y)
+    y *= 10
     return x, y
 
 # set plot parameters
