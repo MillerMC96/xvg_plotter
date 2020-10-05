@@ -34,9 +34,13 @@ def read_xvg(xvg_file):
 
 # set plot parameters
 def set_plot_parameters(plot_obj, title, xlabel, ylabel):
-    plot_obj.title(title)
-    plot_obj.xlabel(xlabel)
-    plot_obj.ylabel(ylabel)
+    fontsize = 20
+    plot_obj.xticks(fontsize=fontsize)
+    plot_obj.yticks(fontsize=fontsize)
+    plot_obj.subplots_adjust(bottom=0.15, left=0.15, top=0.95)
+    #plot_obj.title(title, fontsize=16)
+    plot_obj.xlabel(xlabel, fontsize=fontsize)
+    plot_obj.ylabel(ylabel, fontsize=fontsize)
 
 # main function
 if __name__ == "__main__":
